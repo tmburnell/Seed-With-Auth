@@ -1,0 +1,25 @@
+{
+    "apiVersion": {
+        "git": {
+            "commit": {
+                "time": 1505933147000,
+                "id": "7729229a3e"
+            },
+            "branch": "master"
+        },
+        "build": {
+            "name": "seed-api",
+            "time": 1505933809000,
+            "java": {
+                "target": "1.8",
+                "source": "1.8"
+            },
+            "encoding": {
+                "source": "UTF-8",
+                "reporting": "UTF-8"
+            },
+            "version": "0.0.1-SNAPSHOT",
+            "artifact": "seed-api"
+        }
+    }
+}

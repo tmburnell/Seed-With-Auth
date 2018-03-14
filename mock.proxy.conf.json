@@ -1,0 +1,22 @@
+{
+    "/api": {
+        "target": "http://localhost:4300",
+        "secure": false
+    },
+    "/authenticate": {
+        "target": "http://localhost:4300",
+        "secure": false
+    },
+    "/userInfo": {
+        "target": "http://localhost:4300",
+        "secure": false
+    },
+    "/logout": {
+        "target": "http://localhost:4300",
+        "secure": false
+    },
+    "/info": {
+        "target": "http://localhost:4300",
+        "secure": false
+    }
+}

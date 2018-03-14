@@ -1,0 +1,14 @@
+{
+  "git.branch" : "master",
+  "git.build.time" : "2017-09-20T10:36:27-0500",
+  "git.build.version" : "0.0.1",
+  "git.closest.tag.commit.count" : "",
+  "git.closest.tag.name" : "",
+  "git.commit.id" : "3a2d32b69249cfefe421dfcdf44505d0f864215c",
+  "git.commit.id.abbrev" : "3a2d32b692",
+  "git.commit.id.describe" : "3a2d32b692-dirty",
+  "git.commit.id.describe-short" : "3a2d32b692-dirty",
+  "git.commit.time" : "2017-09-19T10:18:01-0500",
+  "git.dirty" : "true",
+  "git.tags" : ""
+}

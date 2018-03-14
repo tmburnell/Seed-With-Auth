@@ -1,0 +1,31 @@
+<div fxFlex fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <h3>Application Version Information</h3>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <mat-accordion fxFlex="60" fxLayout="column">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title fxFlex="20">Static (UI)</mat-panel-title>
+          <mat-panel-description fxLayout="row" fxLayoutAlign="space-around" *ngIf="staticVersion">
+            <div>commit({{staticVersion["git.commit.id.abbrev"]}})</div>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!--<codemirror *ngIf="staticVersion" [(ngModel)]="staticVersionString" [config]="config"></codemirror>-->
+        <pre>{{staticVersionString}}</pre>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title fxFlex="20">Api</mat-panel-title>
+          <mat-panel-description fxLayout="row" fxLayoutAlign="space-around" *ngIf="apiVersion">
+            <div>commit({{apiVersion.git.commit.id}})</div>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!--<codemirror *ngIf="apiVersion" [(ngModel)]="apiVersionString" [config]="config"></codemirror>-->
+        <pre>{{apiVersionString}}</pre>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+{
+    "users" : [
+        {
+            "authenticated" : false,
+            "authorities": [
+                {"authority": "View"},
+                {"authority": "Create"},
+                {"authority": "Update"},
+                {"authority": "Delete"}
+            ],
+            "avatar_url": null,
+            "username": "gooduser",
+            "name": "Good User",
+            "family_name": "User",
+            "given_name": "Good",
+            "email": "user@something.com"
+        },
+        {
+            "authenticated" : false,
+            "authorities": [],
+            "avatar_url": null,
+            "username": "baduser",
+            "name": "Bad User",
+            "family_name": "User",
+            "given_name": "Bad",
+            "email": "evil@something.com"
+        }
+    ]
+}

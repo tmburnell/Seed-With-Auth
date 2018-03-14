@@ -1,0 +1,13 @@
+:host {
+    > div {
+        margin: 8px;
+
+        > div {
+            margin: 8px;
+        }
+
+        mat-expansion-panel {
+            margin: 8px 0;
+        }
+    }
+}

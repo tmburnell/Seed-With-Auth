@@ -1,0 +1,63 @@
+<div fxLayoutAlign="center start">
+  <mat-card class="login" >
+    <mat-card-header fxLayout="column" fxLayoutAlign="center center">
+      <h1 class="appHeader">{{title}}</h1>
+    </mat-card-header>
+    <mat-card-content >
+      <mat-tab-group mat-stretch-tabs [(selectedIndex)]="authTypeIndex" (selectedIndexChange)="loginForm.reset(); createUserForm.reset(); clearErrorMsg()">
+        <mat-tab label="Sign In">
+          <form fxLayout="column" name="login" #loginForm="ngForm">
+            <mat-input-container>
+              <input matInput type=text name="id" placeholder="User Name" [(ngModel)]="user.username" required>
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type=password name="password" placeholder="Password" [(ngModel)]="user.password" required>
+            </mat-input-container>
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <button [disabled]="loading || !loginForm.form.valid" mat-raised-button color="primary" (click)="login()">
+                Login
+              </button>
+            </div>
+            <div *ngIf="loading" fxLayoutAlign="center start" class="spinner">
+              <mat-spinner></mat-spinner>
+            </div>
+          </form>
+        </mat-tab>
+        <mat-tab label="Create Account">
+          <form fxLayout="column" name="create-user" #createUserForm="ngForm">
+            <mat-input-container>
+              <input matInput type=text name="id" placeholder="User Name" [(ngModel)]="newUser.username" #name="ngModel" required minlength="4">
+              <mat-error *ngIf="name.errors?.minlength">Name must be at least 4 characters long.</mat-error>
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="email" name="email" placeholder="Email" [(ngModel)]="newUser.email" required #email="ngModel" email>
+              <mat-error *ngIf="email.errors?.email">Email is required and format should be <i>john@doe.com</i>. </mat-error>
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type=password name="password" placeholder="Password" [(ngModel)]="newUser.password"
+                     #password="ngModel" required  minlength="8">
+              <mat-error *ngIf="password.errors?.minlength">Password must be at least 8 characters long.</mat-error>
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="password" name="confirmPassword" placeholder="Confirm Password" [ngModel]="newUser.confirmPassword"
+                     required validateEqual="password" #confirmPassword="ngModel">
+              <mat-error *ngIf="!confirmPassword.valid && !confirmPassword.pristine">Password mismatch</mat-error>
+            </mat-input-container>
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <button [disabled]="loading || !(createUserForm.form.valid)" mat-raised-button color="primary"
+                      (click)="createUser()">
+                Create User
+              </button>
+            </div>
+            <div *ngIf="loading" fxLayoutAlign="center start" class="spinner">
+              <mat-spinner></mat-spinner>
+            </div>
+          </form>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+    <mat-card-footer *ngIf="errorMsg" class="error" #loginContainer fxLayoutAlign="center center">
+      <h4 >{{errorMsg}}</h4>
+    </mat-card-footer>
+  </mat-card>
+</div>

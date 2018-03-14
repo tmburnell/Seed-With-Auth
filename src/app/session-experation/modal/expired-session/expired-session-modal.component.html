@@ -1,0 +1,13 @@
+<mat-dialog-content>
+    <div fxLayout="row" fxLayoutAlign="space-between" class="modalHeader">
+        <h3>Session Timeout</h3>
+    </div>
+
+    <div fxLayout="row">
+        <p>To maintain security, your session periodically expires. To reconnect, click OK.</p>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="end" class="actionButtons">
+        <button mat-raised-button color="primary" (click)="reload()">OK</button>
+    </div>
+</mat-dialog-content>

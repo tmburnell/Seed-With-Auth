@@ -1,0 +1,13 @@
+:host-context {
+    .modalHeader {
+        margin-bottom: 24px;
+    }
+
+    .actionButtons {
+        margin-top: 24px;
+
+        :first-child{
+            margin-right: 12px;
+        }
+    }
+}
