@@ -4,13 +4,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
-import {CodemirrorModule} from 'ng2-codemirror';
-
-import {MaterialModule} from 'app/common/external/material';
-import {AboutService} from 'app/_services';
-import {TestingServiceProviders} from 'app/_services/TestingService.providers.spec';
-
-import {DstNotificationService} from 'app/common';
+import {AboutService} from 'app/_common/services';
 
 import {AboutComponent} from './about.component';
 import {Observable} from 'rxjs/Observable';
@@ -25,18 +19,14 @@ describe('AboutComponent', () => {
             imports: [
                 FormsModule,
                 HttpClientModule,
-                MaterialModule,
                 NoopAnimationsModule,
-                CodemirrorModule,
                 RouterTestingModule
             ],
             declarations: [
                 AboutComponent
             ],
             providers: [
-                AboutService,
-                DstNotificationService,
-                TestingServiceProviders
+                AboutService
             ]
         }).compileComponents();
     }));
@@ -52,7 +42,6 @@ describe('AboutComponent', () => {
 
     it('should successfully create', () => {
         spyOn(aboutService, 'getStaticVersion').and.returnValue(Observable.of(null));
-        spyOn(aboutService, 'getEdgeVersion').and.returnValue(Observable.of(null));
         spyOn(aboutService, 'getApiVersion').and.returnValue(Observable.of(null));
 
         fixture.detectChanges();
@@ -63,7 +52,6 @@ describe('AboutComponent', () => {
         const staticVersion = [{'test': 'test', 'testtest': 'testest'}];
         const getStaticVersion = jasmine.createSpy('getStaticVersion');
 
-        spyOn(aboutService, 'getEdgeVersion').and.returnValue(Observable.of(null));
         spyOn(aboutService, 'getApiVersion').and.returnValue(Observable.of(null));
         spyOn(aboutService, 'getStaticVersion').and.callFake(() => {
             getStaticVersion();
@@ -75,28 +63,11 @@ describe('AboutComponent', () => {
         expect(getStaticVersion).toHaveBeenCalled();
     });
 
-    it('should get edge version info', () => {
-        const edgeVersion = {'git': {'commit': {'time': 123, 'id': '123'}, 'branch': 'master'}};
-        const getEdgeVersion = jasmine.createSpy('getEdgeVersion');
-
-        spyOn(aboutService, 'getStaticVersion').and.returnValue(Observable.of(null));
-        spyOn(aboutService, 'getApiVersion').and.returnValue(Observable.of(null));
-        spyOn(aboutService, 'getEdgeVersion').and.callFake(() => {
-            getEdgeVersion();
-            return Observable.of(edgeVersion);
-        });
-
-        fixture.detectChanges();
-
-        expect(getEdgeVersion).toHaveBeenCalled();
-    });
-
     it('should get api version info', () => {
         const apiVersion = {'git': {'commit': {'time': 123, 'id': '123'}, 'branch': 'master'}};
         const getApiVersion = jasmine.createSpy('getApiVersion');
 
         spyOn(aboutService, 'getStaticVersion').and.returnValue(Observable.of(null));
-        spyOn(aboutService, 'getEdgeVersion').and.returnValue(Observable.of(null));
         spyOn(aboutService, 'getApiVersion').and.callFake(() => {
             getApiVersion();
             return Observable.of(apiVersion);
