@@ -27,4 +27,12 @@ export class AppComponent implements OnInit {
       this.router.navigate(['sessionExpired']);
     });
   }
+
+  isAuthenticated(): boolean {
+    return !!this.authenticationService.getCurrentUser();
+  }
+
+  logout(){
+    this.authenticationService.logout();
+  }
 }

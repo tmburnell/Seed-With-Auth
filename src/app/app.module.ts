@@ -6,9 +6,9 @@ import {FormsModule} from '@angular/forms';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatIconModule, MatButtonModule, MatDialogModule, MatInputModule, MatCardModule, MatTooltipModule,
-  MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatSnackBarModule} from '@angular/material';
+  MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatSnackBarModule, MatMenuModule} from '@angular/material';
 const MaterialModules = [MatIconModule, MatButtonModule, MatDialogModule, MatInputModule, MatCardModule, MatTooltipModule,
-  MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatSnackBarModule];
+  MatProgressSpinnerModule, MatExpansionModule, MatTabsModule, MatSnackBarModule,MatMenuModule];
 import {Angular2FontawesomeModule} from "angular2-fontawesome";
 
 import {AppComponent} from './app.component';

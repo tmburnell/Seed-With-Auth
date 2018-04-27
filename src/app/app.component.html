@@ -1,3 +1,13 @@
 <div fxFill fxLayout="column">
   <router-outlet></router-outlet>
 </div>
+
+<button mat-mini-fab [matMenuTriggerFor]="menu" class="nav-menu">
+  <fa name="bars"></fa>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/about']">About</button>
+  <button mat-menu-item [routerLink]="['/construction']">Home</button>
+  <button mat-menu-item *ngIf="isAuthenticated()" (click)="logout()">Logout</button>
+  <button mat-menu-item *ngIf="!isAuthenticated()" [routerLink]="['/login']">Login</button>
+</mat-menu>
