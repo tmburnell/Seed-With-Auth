@@ -10,7 +10,6 @@ import {AboutComponent} from './about';
 import {UnderConstructionPageComponent} from './under-construction-page';
 
 const appRoutes: Routes = [
-    // {path: '', component: NamespacesComponent},
     {path: 'about', component: AboutComponent},
 
     {path: 'construction', component: UnderConstructionPageComponent, canActivate: [AuthGuard]},
